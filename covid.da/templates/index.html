@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>COVID Reinfection Predictor</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <script src="/static/js/script.js" defer></script>
+</head>
+<body>
+    <main class="app-container">
+        <div class="form-card">
+            <h1>🩺 COVID Reinfection Risk Checker</h1>
+            <p class="subtitle">Check your immunity and COVID reinfection risk level</p>
+            <form name="predictionForm" action="/predict" method="post" onsubmit="return validateForm();">
+                <label for="age">👤 Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" required />
+
+                <label for="gender">⚥ Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select Gender</option>
+                    <option>Male</option>
+                    <option>Female</option>
+                </select>
+
+                <label for="vaccine_type">💉 Vaccine Type:</label>
+                <select id="vaccine_type" name="vaccine_type" required>
+                    <option value="" disabled selected>Select Vaccine</option>
+                    <option>Covaxin</option>
+                    <option>Covishield</option>
+                    <option>Pfizer</option>
+                    <option>Moderna</option>
+                    <option>None</option>
+                </select>
+
+                <label for="doses">💊 Doses Taken:</label>
+                <select id="doses" name="doses" required>
+                    <option value="" disabled selected>Select Doses</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                </select>
+
+                <label for="booster">🔋 Booster Taken:</label>
+                <select id="booster" name="booster" required>
+                    <option value="" disabled selected>Booster Taken?</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+
+                <label for="immune_score">🛡️ Immune Score:</label>
+                <select id="immune_score" name="immune_score" required>
+                    <option value="" disabled selected>Select Immune Score</option>
+                    <option>Low</option>
+                    <option>Medium</option>
+                    <option>High</option>
+                </select>
+
+                <button type="submit">🔍 Predict</button>
+                <div id="loading" class="loading-text">⏳ Checking your risk level...</div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
+
